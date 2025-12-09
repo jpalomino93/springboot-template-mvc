@@ -1,18 +1,23 @@
 package com.example.template.entity;
-import jakarta.persistence.*;
-import lombok.*;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import jakarta.persistence.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(name="users")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+@Table(name = "users")
 public class User {
+
  @Id
- @GeneratedValue(strategy=GenerationType.IDENTITY)
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
 
- @Column(nullable=false,length=80)
  private String name;
-
- @Column(nullable=false,unique=true,length=120)
  private String email;
 }
